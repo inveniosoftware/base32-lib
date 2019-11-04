@@ -124,8 +124,8 @@ todo_include_todos = False
 html_theme = 'alabaster'
 
 html_theme_options = {
-    'description': 'Small library for validating and normalising persistent '
-                   'identifiers used in scholarly communication.',
+    'description': 'Small library to generate, encode and decode random '
+                   'base32 strings with nice properties.',
     'github_user': 'inveniosoftware',
     'github_repo': 'base32-lib',
     'github_button': False,

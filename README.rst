@@ -28,7 +28,8 @@ base32-lib
         :target: https://github.com/inveniosoftware/base32-lib/blob/master/LICENSE
 
 
-Small library to generate, encode and decode random base32 strings with nice properties.
+Small library to generate, encode and decode random base32 strings with nice
+properties.
 
 Usage
 =====
@@ -58,12 +59,12 @@ Usage
 Features
 ========
 
-- Generation, encoding and decoding of strings
+- Generation, encoding and decoding of base32 strings
+- Douglas Crockford base32 encoding
+- URL-safe strings with no problematic special characters
 - Decoding of any-case strings
 - Configurable length strings
 - Randomness through cryptographically secure random number generator
-- Douglas Crockford base32 encoding
-- URL-safe strings with no problematic special characters
 - Optional ISO-7064 checksum
 - Optional hyphenation
 
