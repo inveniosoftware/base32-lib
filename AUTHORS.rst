@@ -10,6 +10,6 @@
 Authors
 =======
 
-- Lars Nielsen
-- Pablo Panero
 - Guillaume Viger
+- Lars Holm Nielsen
+- Pablo Panero

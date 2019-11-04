@@ -11,5 +11,6 @@
 """Small library to generate, encode and decode random base32 identifiers."""
 
 from .base32 import decode, encode, generate
+from .version import __version__
 
-__all__ = ['decode', 'encode', 'generate']
+__all__ = ['decode', 'encode', 'generate', '__version__']
