@@ -94,13 +94,13 @@ def generate(length=8, split_every=0, checksum=False):
         )
 
     generator = random.SystemRandom()
-    length = length - 2 if checksum else length
+    length_no_checksum = length - 2 if checksum else length
     # takes at most length*5 bits to express, but could take less
-    number = generator.getrandbits(length * 5)
+    number = generator.getrandbits(length_no_checksum * 5)
     return encode(
         number,
         split_every=split_every,
-        min_length=length,  # ensures desired length
+        min_length=length,  # ensures desired length (*including* checksum)
         checksum=checksum
     )
 
