@@ -19,10 +19,13 @@ sudo: false
 language: python
 
 python:
-  - "2.7"
-  - "3.5"
   - "3.6"
   - "3.7"
+  - "3.8"
+
+matrix:
+  allow_failures:
+    - python: 3.8
 
 env:
   - REQUIREMENTS=lowest
@@ -50,7 +53,6 @@ deploy:
   password:
     secure: V3ak8HwWUvtKL4BWGCjLAAYMd5jYijGKt7nGLw5woEjrZ/ahr5stnSF1lxuJuUuFZDHbS5rAzPO1uDZLlHig5OvUv7M/LCV+Yni1waHaooB4iqL78B8xtorlomZsMf8ffd50VghU3IO1+nAWOIunQNxjz1kAv8wLYw3IEfMz2WfzEW7CKHZohZeuX2xgmJP3iDECdCOouOCFP2hQxiyP7i+ORgrkYzqOMhiv6Z6tCXwYT4cEtw7sdnHyt67yeNsDr32WxfGZ5O1lIaopvnHHhf+AyPzvfdk2ZCjCdjXtRWG2isddxDREZL6LLMwhzQJ4G54pvnZj7Zp4WtfVYNZMKmDhJhTRBx+wG10qjxcnojLGYGfyajBLt/lNBC6t6e0aowxD6dz7R2rpMEnctjmiaYiLoM2EyCQr00aSvhCljR2ujWN217l2YENJ0hdH48VkrCGcDNedddroEcLJ4HMfI655N4XjgsAevxZQxPLS4upQ59GCt238fwGnXxT2yuH13rVIpBH7xj9apn0cgArFYjb2VMEAO513ftIIXlljfNYwEeMA0loRIXI2pbZ/vZaCJEUIfDd8NOzmT5eXblwJHH3QxgWSP9xJmT3CGhM+0r0zj+mvOrd3Ku57/CE2jo3IrBPbXlToirwYzRQt430Xfyoc91Upr9q4voYjj1OnkQw=
   distributions: "sdist bdist_wheel"
+  skip_existing: true
   on:
     tags: true
-    python: "3.6"
-    condition: $REQUIREMENTS = release
