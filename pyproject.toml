@@ -85,12 +85,15 @@ skip = [".eggs"]
 
 [tool.pytest.ini_options]
 addopts = [
-  "--strict-markers",
-  "--strict-config",
+  "--black",
+  "--isort",
+  "--pydocstyle",
   "--cov=base32_lib",
   "--cov-report=term-missing",
   "--cov-report=html",
   "--cov-report=xml",
+  "--strict-markers",
+  "--strict-config",
 ]
 testpaths = ["docs", "tests", "base32_lib"]
 minversion = "7.0"
