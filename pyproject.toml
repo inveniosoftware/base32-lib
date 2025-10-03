@@ -92,5 +92,5 @@ addopts = [
   "--cov-report=html",
   "--cov-report=xml",
 ]
-testpaths = ["tests"]
+testpaths = ["docs", "tests", "base32_lib"]
 minversion = "7.0"
