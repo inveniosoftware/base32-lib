@@ -13,7 +13,7 @@
 
 This encoder/decoder:
 - uses Douglas Crockford Base32 encoding: https://www.crockford.com/base32.html
-- allows for ISO 7064 checksum
+- allows for ISO 7064 MOD 97-10 checksum
 - encodes the checksum using only characters in the base32 set
   (only digits in fact)
 - produces string that are URI-friendly (no '=' or '/' for instance)
@@ -60,9 +60,9 @@ def encode(number, split_every=0, min_length=0, checksum=False):
             encoded = ENCODING_CHARS[remainder] + encoded
 
     if checksum:
-        # NOTE: 100 * original_number is used because datacite also uses it
+        # NOTE: compute checksum according to ISO 7064 MOD 97-10
         computed_checksum = 97 - ((100 * original_number) % 97) + 1
-        encoded_checksum = "{:02d}".format(computed_checksum)
+        encoded_checksum = f"{computed_checksum:02d}"
         encoded += encoded_checksum
 
     if min_length > 0:
