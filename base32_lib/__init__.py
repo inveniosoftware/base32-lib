@@ -4,6 +4,7 @@
 # Copyright (C) 2019 CERN.
 # Copyright (C) 2019 Northwestern University,
 #                    Galter Health Sciences Library & Learning Center.
+# Copyright (C) 2025 Front Matter.
 
 # base32-lib is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -11,6 +12,6 @@
 """Small library to generate, encode and decode random base32 identifiers."""
 
 from .base32 import decode, encode, generate
-from .version import __version__
 
-__all__ = ['decode', 'encode', 'generate', '__version__']
+__version__ = "1.1.0"
+__all__ = ["decode", "encode", "generate", "__version__"]

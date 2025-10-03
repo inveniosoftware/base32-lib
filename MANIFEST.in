@@ -9,6 +9,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 
 include *.rst
+include *.toml
 include .coveragerc
 include .editorconfig
 include docs/*.py
@@ -17,7 +18,6 @@ include docs/Makefile
 include docs/requirements.txt
 include .lgtm
 include LICENSE
-include pytest.ini
 include run-tests.sh
 recursive-include *.py *.css *.css_t *.conf *.html
 recursive-include docs *.py

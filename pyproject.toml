@@ -1,0 +1,99 @@
+# -*- coding: utf-8 -*-
+#
+# This file is part of base32-lib
+# Copyright (C) 2019 CERN.
+# Copyright (C) 2019 Northwestern University,
+#                    Galter Health Sciences Library & Learning Center.
+# Copyright (C) 2025 Front Matter.
+
+# base32-lib is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "base32-lib"
+dynamic = ["version"]
+description = "Small library to generate, encode and decode random base32 strings."
+readme = { file = "README.rst", content-type = "text/x-rst" }
+requires-python = ">=3.8"
+license = { text = "MIT License" }
+authors = [{ name = "Invenio Software", email = "info@inveniosoftware.org" }]
+keywords = ["base32", "identifiers"]
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/inveniosoftware/base32-lib"
+
+[project.optional-dependencies]
+docs = ["Sphinx>=1.4.2"]
+tests = [
+  "check-manifest>=0.25",
+  "coverage>=4.0",
+  "isort>=4.2.2",
+  "pydocstyle>=1.0",
+  "pytest-cov>=1.8.0",
+  "pytest>=3.6.0",
+]
+all = ["base32-lib[docs,tests]"]
+
+[dependency-groups]
+test = ["pytest>=7.0", "pytest-cov>=4.0", "coverage>=7.0"]
+dev = [
+  "check-manifest>=0.25",
+  "isort>=5.0",
+  "pydocstyle>=6.0",
+  { include-group = "test" },
+]
+
+[tool.setuptools]
+packages = ["base32_lib"]
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.dynamic]
+version = { attr = "base32_lib.__version__" }
+
+[tool.setuptools.package-data]
+"*" = ["*.py", "*.css", "*.css_t", "*.conf", "*.html"]
+
+# Tool configurations migrated from setup.cfg
+
+[tool.bdist_wheel]
+universal = true
+
+[tool.pydocstyle]
+add-ignore = ["D401"]
+
+[tool.isort]
+known_first_party = ["base32_lib"]
+multi_line_output = 2
+default_section = "THIRDPARTY"
+skip = [".eggs"]
+
+[tool.pytest.ini_options]
+addopts = [
+  "--strict-markers",
+  "--strict-config",
+  "--cov=base32_lib",
+  "--cov-report=term-missing",
+  "--cov-report=html",
+  "--cov-report=xml",
+]
+testpaths = ["tests"]
+minversion = "7.0"
