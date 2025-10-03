@@ -16,7 +16,7 @@ build-backend = "setuptools.build_meta"
 name = "base32-lib"
 dynamic = ["version"]
 description = "Small library to generate, encode and decode random base32 strings."
-readme = { file = "README.rst", content-type = "text/x-rst" }
+readme = "README.rst"
 requires-python = ">=3.8"
 license = { text = "MIT License" }
 authors = [{ name = "Invenio Software", email = "info@inveniosoftware.org" }]
