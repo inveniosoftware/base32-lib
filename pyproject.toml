@@ -9,7 +9,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -17,7 +17,7 @@ name = "base32-lib"
 dynamic = ["version"]
 description = "Small library to generate, encode and decode random base32 strings."
 readme = "README.rst"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 license = { text = "MIT License" }
 authors = [{ name = "Invenio Software", email = "info@inveniosoftware.org" }]
 keywords = ["base32", "identifiers"]
@@ -51,12 +51,6 @@ all = ["base32-lib[docs,tests]"]
 
 [dependency-groups]
 test = ["pytest>=7.0", "pytest-cov>=4.0", "coverage>=7.0"]
-dev = [
-  "check-manifest>=0.25",
-  "isort>=5.0",
-  "pydocstyle>=6.0",
-  { include-group = "test" },
-]
 
 [tool.setuptools]
 packages = ["base32_lib"]

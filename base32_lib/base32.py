@@ -2,8 +2,7 @@
 #
 # This file is part of base32-lib
 # Copyright (C) 2019 CERN.
-# Copyright (C) 2019 Northwestern University,
-#                    Galter Health Sciences Library & Learning Center.
+# Copyright (C) 2019 Northwestern University.
 # Copyright (C) 2025 Front Matter.
 
 # base32-lib is free software; you can redistribute it and/or modify it
