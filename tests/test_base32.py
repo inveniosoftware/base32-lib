@@ -64,19 +64,19 @@ def test_generate_hyphenate():
     identifier = base32.generate(length=3, split_every=1)
 
     assert len(identifier) == 3 + 2
-    assert identifier.count('-') == 2
+    assert identifier.count("-") == 2
 
     with pytest.raises(ValueError):
         assert base32.generate(split_every=-1)
 
     identifier = base32.generate(length=3, split_every=0)
-    assert identifier.count('-') == 0
+    assert identifier.count("-") == 0
 
     identifier = base32.generate(length=3, split_every=3)
-    assert identifier.count('-') == 0
+    assert identifier.count("-") == 0
 
     identifier = base32.generate(length=3, split_every=4)
-    assert identifier.count('-') == 0
+    assert identifier.count("-") == 0
 
 
 def test_generate_checksum():
@@ -84,12 +84,12 @@ def test_generate_checksum():
 
     # checksum is always 2 digits affixed at the end
     assert len(identifier) == 3
-    assert re.match(r'\d\d$', identifier[-2:])
+    assert re.match(r"\d\d$", identifier[-2:])
 
     # hyphenation is done after checksum
     identifier = base32.generate(length=3, split_every=1, checksum=True)
     assert len(identifier) == 3 + 2
-    assert re.match(r'\d-\d$', identifier[-3:])
+    assert re.match(r"\d-\d$", identifier[-3:])
 
     with pytest.raises(ValueError):
         assert base32.generate(length=2, checksum=True)
@@ -103,12 +103,11 @@ def test_basic_decode():
 
 
 def test_decode_normalizes_symbols():
-    assert (
-        base32.decode("abcdefghijklmnopqrstvwxyz") ==
-        base32.decode("ABCDEFGHIJKLMNOPQRSTVWXYZ")
+    assert base32.decode("abcdefghijklmnopqrstvwxyz") == base32.decode(
+        "ABCDEFGHIJKLMNOPQRSTVWXYZ"
     )
-    assert base32.decode('IL1O0ilo') == base32.decode('11100110')
-    assert base32.decode('1-6-j') == base32.decode('16j')
+    assert base32.decode("IL1O0ilo") == base32.decode("11100110")
+    assert base32.decode("1-6-j") == base32.decode("16j")
 
 
 def test_decode_raises_for_invalid_string():
@@ -120,7 +119,7 @@ def test_decode_raises_for_invalid_string():
 
 
 def test_decode_0_padded_equivalent_to_non_0_padded():
-    assert base32.decode('016j') == base32.decode('16j')
+    assert base32.decode("016j") == base32.decode("16j")
 
 
 def test_decode_checksum():

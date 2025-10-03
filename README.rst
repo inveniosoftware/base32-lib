@@ -12,9 +12,6 @@
 base32-lib
 =================
 
-.. image:: https://img.shields.io/travis/inveniosoftware/base32-lib.svg
-        :target: https://travis-ci.org/inveniosoftware/base32-lib
-
 .. image:: https://img.shields.io/coveralls/inveniosoftware/base32-lib.svg
         :target: https://coveralls.io/r/inveniosoftware/base32-lib
 
@@ -67,6 +64,7 @@ Features
 - Randomness through cryptographically secure random number generator
 - Optional ISO-7064 checksum
 - Optional hyphenation
+- Supports uv
 
 
 Installation
