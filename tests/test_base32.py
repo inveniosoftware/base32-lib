@@ -123,3 +123,27 @@ def test_decode_checksum():
 def test_decode_invalid_checksum():
     with pytest.raises(ValueError):
         assert base32.decode("16j44", checksum=True)
+
+
+def test_decode_checksum_with_hyphen_inside_checksum():
+    # encode() hyphenates after appending the checksum, so a hyphen can
+    # land between (or right before) the two checksum digits.
+    assert base32.encode(12345, split_every=4, checksum=True) == "c1s2-0"
+    assert base32.decode("c1s2-0", checksum=True) == 12345
+    assert base32.decode("1-6-j-8-2", checksum=True) == 1234
+    assert base32.decode("16j-82", checksum=True) == 1234
+
+
+def test_decode_checksum_roundtrip_with_split_every():
+    for number in range(0, 5000, 7):
+        for split_every in range(0, 6):
+            encoded = base32.encode(number, split_every=split_every, checksum=True)
+            assert base32.decode(encoded, checksum=True) == number
+
+
+def test_decode_checksum_rejects_non_digit_checksum():
+    with pytest.raises(ValueError):
+        base32.decode("16j+8", checksum=True)
+
+    with pytest.raises(ValueError):
+        base32.decode("16j٨٢", checksum=True)

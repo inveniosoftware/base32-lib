@@ -127,8 +127,18 @@ def decode(encoded, checksum=False):
     :returns: original number.
     """
     if checksum:
+        # encode() hyphenates after appending the checksum, so hyphens can
+        # sit inside the checksum: drop them before splitting it off.
+        encoded = encoded.replace("-", "")
         encoded_checksum = encoded[-2:]
         encoded = encoded[:-2]
+
+        if not (
+            len(encoded_checksum) == 2
+            and encoded_checksum.isascii()
+            and encoded_checksum.isdigit()
+        ):
+            raise ValueError("Invalid checksum.")
 
     encoded = normalize(encoded)
 
