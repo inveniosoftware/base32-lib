@@ -9,7 +9,7 @@ name = "base32-lib"
 dynamic = ["version"]
 description = "Small library to generate, encode and decode random base32 strings."
 readme = "README.rst"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 license = { text = "MIT License" }
 authors = [{ name = "Invenio Software", email = "info@inveniosoftware.org" }]
 keywords = ["base32", "identifiers"]
